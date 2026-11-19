@@ -47,6 +47,11 @@ def plot_svm_data(output_path):
     return output_path
 
 
+def _support_vector_ids():
+    # Derivation and explanation in writeup.pdf q1a
+    return (1, 5, 6)
+
+
 def identify_support_vectors():
     """Q1(a), 10 points together with the plot: identify support vectors by eye.
 
@@ -55,8 +60,7 @@ def identify_support_vectors():
     # Making sure that the result is not dependent on where its ran it from
     plot_svm_data(Path(__file__).resolve().parent / "figures" / "q1a.png")
 
-    # Derivation and explanation: see writeup.pdf, Question 1(a).
-    return (1, 5, 6)
+    return _support_vector_ids()
 
 
 def derive_svm_separator():
@@ -68,7 +72,7 @@ def derive_svm_separator():
     Return (weights, bias, geometric_margin), with weights a pair of numbers.
     Explain the derivation and your margin convention in the written report.
     """
-    sv_ids = identify_support_vectors()  # (1, 5, 6)
+    sv_ids = _support_vector_ids()  # (1, 5, 6)
 
     # one equation per support vector: y * (w1*x1 + w2*x2 + b) = 1
     # rewritten as: (y*x1)*w1 + (y*x2)*w2 + y*b = 1
